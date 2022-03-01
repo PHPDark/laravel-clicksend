@@ -25,7 +25,7 @@ class ClickSend
     public function SendMessage(SmsMessage|array $messages): ClickSendResponse
     {
         $postData = is_array($messages) ? ['messages' => $messages] : ['messages' => [$messages]];
-        $response = Http::withBasicAuth($$this->username, $this->password)->post($this->baseUrl.'/sms/send', $postData);
+        $response = Http::withBasicAuth($this->username, $this->password)->post($this->baseUrl.'/sms/send', $postData);
 
         return new ClickSendResponse($response->json());
     }
