@@ -2,7 +2,7 @@
 
 namespace Codemonkey76\ClickSend;
 
-interface ClickSendMessageInterface {
-    sendMessage(SmsMessage|array $messages) : ClickSendResponse;
-    getMessageReceipt(ClickSendMessageResponse $messageResponse) : array;
+interface MessageInterface {
+    function sendMessage(SmsMessage|array $messages) : ClickSendResponse;
+    function getMessageReceipt(MessageResponse $messageResponse) : array;
 }

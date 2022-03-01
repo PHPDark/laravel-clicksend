@@ -4,10 +4,10 @@ namespace Codemonkey76\ClickSend;
 
 use Illuminate\Support\Facades\Http;
 use Codemonkey76\ClickSend\ClickSendResponse;
-use Codemonkey76\ClickSend\ClickSendMessageResponse;
-use Codemonkey76\ClickSend\ClickSendMessageInterface;
+use Codemonkey76\ClickSend\MessageResponse;
+use Codemonkey76\ClickSend\MessageInterface;
 
-class ClickSend implements ClickSendMessageInterface;
+class ClickSend implements MessageInterface
 {
     protected string $username;
     protected string $password;
@@ -33,7 +33,7 @@ class ClickSend implements ClickSendMessageInterface;
         return new ClickSendResponse($response->json());
     }
     
-    public function getMessageReceipt(ClickSendMessageResponse $messageResponse): array
+    public function getMessageReceipt(MessageResponse $messageResponse): array
     {
         $response = Http::withBasicAuth($this->username, $this->password)->get($this->baseUrl.'/sms/receipts/'.$messageResponse->message_id);
 

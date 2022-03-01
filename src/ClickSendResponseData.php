@@ -2,7 +2,7 @@
 
 namespace Codemonkey76\ClickSend;
 
-use Codemonkey76\ClickSend\ClickSendMessageResponse;
+use Codemonkey76\ClickSend\MessageResponse;
 
 class ClickSendResponseData
 {
@@ -17,6 +17,6 @@ class ClickSendResponseData
         $this->total_count = data_get($obj, 'total_count', 0);
         $this->queued_count = data_get($obj, 'queued_count', 0);
         $this->messages = collect(data_get($obj, 'messages'))
-            ->map(fn($msg) => new ClickSendMessageResponse($msg))->toArray();
+            ->map(fn($msg) => new MessageResponse($msg))->toArray();
     }
 }

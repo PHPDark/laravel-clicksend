@@ -3,14 +3,12 @@
 namespace Codemonkey76\ClickSend;
 
 use Illuminate\Support\Facades\Facade;
+use Codemonkey76\ClickSend\MessageInterface;
 
-/**
- * @see \Codemonkey76\ClickSend\Skeleton\SkeletonClass
- */
 class ClickSendFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'clicksend';
+        return MessageInterface::class;
     }
 }

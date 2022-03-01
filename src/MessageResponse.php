@@ -2,7 +2,7 @@
 
 namespace Codemonkey76\ClickSend;
 
-class ClickSendMessageResponse
+class MessageResponse
 {
     public string $message_id;
     public int $message_parts;
