@@ -22,5 +22,8 @@ class ClickSendServiceProvider extends ServiceProvider
         $this->app->singleton('clicksend', function ($app) {
             return new ClickSend($app['config']->get('clicksend.username'), $app['config']->get('clicksend.password'), $app['config']->get('clicksend.api_endpoint'));
         });
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('ClickSend', Codemonkey76\ClickSend\ClickSend::class);
     }
 }
