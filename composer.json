@@ -16,8 +16,8 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/support": "^8.0"
+        "php": "^8.0",
+        "illuminate/support": "^8.0|^9.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Codemonkey76\\LaravelClicksend\\": "src"
+            "Codemonkey76\\ClickSend\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Codemonkey76\\LaravelClicksend\\Tests\\": "tests"
+            "Codemonkey76\\ClickSend\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,10 +44,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Codemonkey76\\LaravelClicksend\\LaravelClicksendServiceProvider"
+                "Codemonkey76\\ClickSend\\ClickSendServiceProvider"
             ],
             "aliases": {
-                "LaravelClicksend": "Codemonkey76\\LaravelClicksend\\LaravelClicksendFacade"
+                "ClickSend": "Codemonkey76\\ClickSend\\ClickSendFacade"
             }
         }
     }
