@@ -2,6 +2,8 @@
 
 namespace Codemonkey76\ClickSend;
 
+use Illuminate\Support\Facades\Http;
+
 class ClickSend
 {
     protected string $username;

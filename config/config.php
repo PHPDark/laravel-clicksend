@@ -6,5 +6,5 @@
 return [
     'username' => env('CLICKSEND_USERNAME'),
     'password' => env('CLICKSEND_PASSWORD'),
-    'api_endpoint' => env('CLICKSEND_API_ENDPOINT')
+    'api_endpoint' => env('CLICKSEND_API_ENDPOINT', 'https://rest.clicksend.com/v3')
 ];
