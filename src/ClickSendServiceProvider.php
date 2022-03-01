@@ -16,6 +16,7 @@ class ClickSendServiceProvider extends ServiceProvider
     }
 
     public function register()
+    {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'clicksend');
 
         $this->app->singleton('clicksend', function () {
