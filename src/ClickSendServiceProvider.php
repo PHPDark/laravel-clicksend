@@ -3,6 +3,7 @@
 namespace Codemonkey76\ClickSend;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\AliasLoader;
 
 class ClickSendServiceProvider extends ServiceProvider
 {
