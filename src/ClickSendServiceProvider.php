@@ -25,6 +25,6 @@ class ClickSendServiceProvider extends ServiceProvider
         });
 
         $loader = AliasLoader::getInstance();
-        $loader->alias('ClickSend', ClickSend::class);
+        $loader->alias('ClickSend', ClickSendFacade::class);
     }
 }
