@@ -2,29 +2,28 @@
 
 namespace Codemonkey76\ClickSend;
 
-use Illuminate\Contracts\Config\Repository as Config;
-
 class ClickSend
 {
     protected string $username;
     protected string $password;
     protected string $baseUrl;
 
-    public function __construct(Config $config)
+    public static function make(): self
     {
-        $this->username = $config['clicksend.username'];
-        $this->password = $config['clicksend.password'];
-        $this->baseUrl = $config['clicksend.api_endpoint'];
+        return app(static::class);
+    }
+
+    public function __construct(string $username, string $password, string $endpoint)
+    {
+        $this->username = $username;
+        $this->password = $password;
+        $this->baseUrl = $endpoint;
     }
 
     public static function SendMessage(SmsMessage|array $messages): ClickSendResponse
     {
-        $baseUrl = config('clicksend.api_endpoint');
-        $username = config('clicksend.username');
-        $password = config('clicksend.password');
-
         $postData = is_array($messages) ? ['messages' => $messages] : ['messages' => [$messages]];
-        $response = Http::withBasicAuth($username, $password)->post($baseUrl.'/sms/send', $postData);
+        $response = Http::withBasicAuth($$this->username, $this->password)->post($this->baseUrl.'/sms/send', $postData);
 
         return new ClickSendResponse($response->json());
     }

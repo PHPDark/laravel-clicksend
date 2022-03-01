@@ -19,8 +19,8 @@ class ClickSendServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'clicksend');
 
-        $this->app->singleton('clicksend', function () {
-            return new ClickSend;
+        $this->app->singleton('clicksend', function ($app) {
+            return new ClickSend($app['config']->get('clicksend.username'), $app['config']->get('clicksend.password'), $app['config']->get('clicksend.api_endpoint'));
         });
     }
 }

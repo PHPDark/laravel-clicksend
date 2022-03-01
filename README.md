@@ -14,16 +14,10 @@ You can install the package via composer:
 composer require codemonkey76/laravel-clicksend
 ```
 
-## Usage
-
-```php
-// Usage description here
-```
-
-### Testing
+## Config
 
 ```bash
-composer test
+php artisan vendor:publish --provider="Codemonkey76\ClickSend\ClickSendServiceProvider"
 ```
 
 ### Changelog
