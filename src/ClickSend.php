@@ -3,6 +3,7 @@
 namespace Codemonkey76\ClickSend;
 
 use Illuminate\Support\Facades\Http;
+use Codemonkey76\ClickSend\ClickSendResponse;
 
 class ClickSend
 {

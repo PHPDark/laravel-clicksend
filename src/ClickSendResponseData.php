@@ -2,6 +2,8 @@
 
 namespace Codemonkey76\ClickSend;
 
+use Codemonkey76\ClickSend\ClickSendMessageResponse;
+
 class ClickSendResponseData
 {
     public float $total_price;
