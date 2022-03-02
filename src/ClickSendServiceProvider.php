@@ -4,6 +4,8 @@ namespace Codemonkey76\ClickSend;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
+use Codemonkey76\ClickSend\MessageInterface;
+use Codemonkey76\ClickSend\ClickSendFacade;
 
 class ClickSendServiceProvider extends ServiceProvider
 {
@@ -20,8 +22,11 @@ class ClickSendServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'clicksend');
 
-        $this->app->singleton('clicksend', function ($app) {
-            return new ClickSend($app['config']->get('clicksend.username'), $app['config']->get('clicksend.password'), $app['config']->get('clicksend.api_endpoint'));
+        $this->app->singleton(MessageInterface::class, function ($app) {
+            return new ClickSend(
+                $app['config']->get('clicksend.username'),
+                $app['config']->get('clicksend.password'),
+                $app['config']->get('clicksend.api_endpoint'));
         });
 
         $loader = AliasLoader::getInstance();
