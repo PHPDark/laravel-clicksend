@@ -33,9 +33,9 @@ class ClickSend implements MessageInterface
         return new ClickSendResponse($response->json());
     }
     
-    public function getMessageReceipt(MessageResponse $messageResponse): array
+    public function getMessageReceipt(string $message_id): array
     {
-        $response = Http::withBasicAuth($this->username, $this->password)->get($this->baseUrl.'/sms/receipts/'.$messageResponse->message_id);
+        $response = Http::withBasicAuth($this->username, $this->password)->get($this->baseUrl.'/sms/receipts/'.$message_id);
 
         $responseJson = $response->json();
         return [

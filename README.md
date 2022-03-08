@@ -27,8 +27,8 @@ php artisan vendor:publish --provider="Codemonkey76\ClickSend\ClickSendServicePr
 Add the following to your .env file and set the values from your clicksend account.
 
 ```bash
-CLICKSEND_USERNAME=*<your username goes here>*
-CLICKSEND_PASSWORD=*<your api key goes here>*
+CLICKSEND_USERNAME=<your username goes here>
+CLICKSEND_PASSWORD=<your api key goes here>
 ```
 
 Optionally if you need to modify the api endpoint, you can also define the following.
@@ -56,7 +56,7 @@ $response = ClickSend::SendMessage($message);
 // Some time later, get the receipt.
 sleep(5);
 
-ClickSend::GetMessageReceipt($response->data->messages[0]);
+ClickSend::GetMessageReceipt($response->data->messages[0]->message_id);
 ```
 
 Example 2. Send multiple messages and retrieve their delivery receipts.
@@ -75,10 +75,10 @@ $response = ClickSend::SendMessage([$message1, $message2, $message3, $message4])
 // Some time later, get the receipts.
 sleep(5);
 
-$receipt1 = ClickSend::GetMessageReceipt($response->data->message[0]);
-$receipt2 = ClickSend::GetMessageReceipt($response->data->message[1]);
-$receipt3 = ClickSend::GetMessageReceipt($response->data->message[2]);
-$receipt4 = ClickSend::GetMessageReceipt($response->data->message[3]);
+$receipt1 = ClickSend::GetMessageReceipt($response->data->message[0]->message_id);
+$receipt2 = ClickSend::GetMessageReceipt($response->data->message[1]->message_id);
+$receipt3 = ClickSend::GetMessageReceipt($response->data->message[2]->message_id);
+$receipt4 = ClickSend::GetMessageReceipt($response->data->message[3]->message_id);
 
 ```
 
